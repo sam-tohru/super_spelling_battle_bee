@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://thug2mx4aqt5"]
+
+[ext_resource type="Texture2D" uid="uid://bftb0ve4yn6mw" path="res://resources/icons_items/currency_gold.png" id="1_dap46"]
+[ext_resource type="Script" path="res://board/all_subnodes/buttons/gold_left/gold_left.gd" id="1_vu304"]
+
+[node name="GoldLeft" type="PanelContainer"]
+custom_minimum_size = Vector2(48, 24)
+script = ExtResource("1_vu304")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureGold" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_dap46")
+stretch_mode = 2
+
+[node name="GoldLeftLabel" type="RichTextLabel" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(28, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "10"

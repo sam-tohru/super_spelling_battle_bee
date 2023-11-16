@@ -1,0 +1,157 @@
+[gd_scene load_steps=35 format=3 uid="uid://clk22cgap8uq8"]
+
+[ext_resource type="Script" path="res://resources/sfx/sfx_main.gd" id="1_toby0"]
+[ext_resource type="AudioStream" uid="uid://b8ey242igyxks" path="res://resources/sfx/woosh/woosh 25.wav" id="2_rhil2"]
+[ext_resource type="AudioStream" uid="uid://iqp7763ilaot" path="res://resources/sfx/woosh/woosh 2.wav" id="3_oiub5"]
+[ext_resource type="AudioStream" uid="uid://dc124ihmjvh2g" path="res://resources/sfx/woosh/woosh 3.wav" id="4_8hnv5"]
+[ext_resource type="AudioStream" uid="uid://cchhpt8al1a0u" path="res://resources/sfx/woosh/woosh 5.wav" id="5_5aikq"]
+[ext_resource type="AudioStream" uid="uid://b3n88pglrsmt5" path="res://resources/sfx/woosh/woosh 6.wav" id="6_y71x5"]
+[ext_resource type="AudioStream" uid="uid://c2eyggiu18v17" path="res://resources/sfx/woosh/woosh 8.wav" id="7_tf6hq"]
+[ext_resource type="AudioStream" uid="uid://blj6e8xabxy72" path="res://resources/sfx/woosh/woosh 10.wav" id="8_e1aqr"]
+[ext_resource type="AudioStream" uid="uid://id5t8cxhaoxu" path="res://resources/sfx/woosh/woosh 13.wav" id="9_vt117"]
+[ext_resource type="AudioStream" uid="uid://bwt78s0klifua" path="res://resources/sfx/woosh/woosh 17.wav" id="10_k5i4b"]
+[ext_resource type="AudioStream" uid="uid://dvb6ro24ukp1e" path="res://resources/sfx/woosh/woosh 18.wav" id="11_gp1fk"]
+[ext_resource type="AudioStream" uid="uid://dxr5pwa4hjj4q" path="res://resources/sfx/woosh/woosh 22.wav" id="12_bclhx"]
+[ext_resource type="AudioStream" uid="uid://jn1a123qxip4" path="res://resources/sfx/woosh/woosh 21.wav" id="13_exueo"]
+[ext_resource type="AudioStream" uid="uid://e7pq0ss7r4r6" path="res://resources/sfx/hit/punch flesh 1.wav" id="14_3tukc"]
+[ext_resource type="AudioStream" uid="uid://dijdv2wx62vu2" path="res://resources/sfx/hit/punch flesh 6.wav" id="15_eautt"]
+[ext_resource type="AudioStream" uid="uid://d87ltr3f1ek0" path="res://resources/sfx/hit/punch flesh 7.wav" id="16_gbsh7"]
+[ext_resource type="AudioStream" uid="uid://dyajv6wqma8ad" path="res://resources/sfx/hit/punch flesh 10.wav" id="17_47jvu"]
+[ext_resource type="AudioStream" uid="uid://co8xpkgara5vh" path="res://resources/sfx/hit/punch flesh 12.wav" id="18_c8ipt"]
+[ext_resource type="AudioStream" uid="uid://7tnb6i7dwbr7" path="res://resources/sfx/hit/punch flesh 13.wav" id="19_sncuq"]
+[ext_resource type="AudioStream" uid="uid://cwubnthe5pob2" path="res://resources/sfx/hit/punch flesh 15.wav" id="20_yj3cx"]
+[ext_resource type="AudioStream" uid="uid://nfemtbl4nv4o" path="res://resources/sfx/hit/punch flesh 16.wav" id="21_2urfu"]
+[ext_resource type="AudioStream" uid="uid://e2xrvh3wmquu" path="res://resources/sfx/hit/punch flesh 17.wav" id="22_p5n7v"]
+[ext_resource type="AudioStream" uid="uid://bhkdbr2s7na76" path="res://resources/sfx/hit/punch flesh 18.wav" id="23_be01k"]
+[ext_resource type="AudioStream" uid="uid://l7svinvb73js" path="res://resources/sfx/hit/punch flesh 19.wav" id="24_3k7la"]
+[ext_resource type="AudioStream" uid="uid://6tjh4pmrcf08" path="res://resources/sfx/hit/punch flesh 20.wav" id="25_4kvgw"]
+[ext_resource type="AudioStream" uid="uid://cbskiqjc2cquc" path="res://resources/sfx/hit_grunt/body hit with grunt 1.wav" id="26_svdqi"]
+[ext_resource type="AudioStream" uid="uid://8lys4aqqtm3a" path="res://resources/sfx/hit_grunt/body hit with grunt 2.wav" id="27_fcp4g"]
+[ext_resource type="AudioStream" uid="uid://08tp0gea23nm" path="res://resources/sfx/hit_grunt/body hit with grunt 3.wav" id="28_r706f"]
+[ext_resource type="Script" path="res://resources/sfx/ui_sfx.gd" id="30_hsbl7"]
+[ext_resource type="AudioStream" uid="uid://dd8mvmmmd0tyh" path="res://resources/sfx/ui_sfx/clown horn 5.wav" id="31_byhtg"]
+[ext_resource type="AudioStream" uid="uid://omyk8bqorig1" path="res://resources/sfx/ui_sfx/lip twiddle 3.wav" id="32_13vwa"]
+[ext_resource type="AudioStream" uid="uid://cpih5q0kmcdsw" path="res://resources/sfx/ui_sfx/lip twiddle 2.wav" id="33_1b5cg"]
+[ext_resource type="AudioStream" uid="uid://ce3knr5xc1oq" path="res://resources/616280__dan_audiofile__fireworks-single-small-close-and-short-stereo.wav" id="33_ddgvb"]
+[ext_resource type="AudioStream" uid="uid://bgcj6mfbteq4o" path="res://resources/sfx/ui_sfx/lip twiddle 11.wav" id="34_u2mu6"]
+
+[node name="sfx_main" type="Node2D"]
+script = ExtResource("1_toby0")
+
+[node name="wooshes" type="Node2D" parent="."]
+
+[node name="woosh_1" type="AudioStreamPlayer" parent="wooshes"]
+stream = ExtResource("2_rhil2")
+
+[node name="woosh_2" type="AudioStreamPlayer" parent="wooshes"]
+stream = ExtResource("3_oiub5")
+
+[node name="woosh_3" type="AudioStreamPlayer" parent="wooshes"]
+stream = ExtResource("4_8hnv5")
+
+[node name="woosh_4" type="AudioStreamPlayer" parent="wooshes"]
+stream = ExtResource("5_5aikq")
+
+[node name="woosh_5" type="AudioStreamPlayer" parent="wooshes"]
+stream = ExtResource("6_y71x5")
+
+[node name="woosh_6" type="AudioStreamPlayer" parent="wooshes"]
+stream = ExtResource("7_tf6hq")
+
+[node name="woosh_7" type="AudioStreamPlayer" parent="wooshes"]
+stream = ExtResource("8_e1aqr")
+
+[node name="woosh_8" type="AudioStreamPlayer" parent="wooshes"]
+stream = ExtResource("9_vt117")
+
+[node name="woosh_9" type="AudioStreamPlayer" parent="wooshes"]
+stream = ExtResource("10_k5i4b")
+
+[node name="woosh_10" type="AudioStreamPlayer" parent="wooshes"]
+stream = ExtResource("11_gp1fk")
+
+[node name="woosh_11" type="AudioStreamPlayer" parent="wooshes"]
+stream = ExtResource("12_bclhx")
+
+[node name="woosh_12" type="AudioStreamPlayer" parent="wooshes"]
+stream = ExtResource("13_exueo")
+
+[node name="punches" type="Node2D" parent="."]
+
+[node name="punch_1" type="AudioStreamPlayer" parent="punches"]
+stream = ExtResource("14_3tukc")
+
+[node name="punch_2" type="AudioStreamPlayer" parent="punches"]
+stream = ExtResource("15_eautt")
+
+[node name="punch_3" type="AudioStreamPlayer" parent="punches"]
+stream = ExtResource("16_gbsh7")
+
+[node name="punch_4" type="AudioStreamPlayer" parent="punches"]
+stream = ExtResource("17_47jvu")
+
+[node name="punch_5" type="AudioStreamPlayer" parent="punches"]
+stream = ExtResource("18_c8ipt")
+
+[node name="punch_6" type="AudioStreamPlayer" parent="punches"]
+stream = ExtResource("19_sncuq")
+
+[node name="punch_7" type="AudioStreamPlayer" parent="punches"]
+stream = ExtResource("20_yj3cx")
+
+[node name="punch_8" type="AudioStreamPlayer" parent="punches"]
+stream = ExtResource("21_2urfu")
+
+[node name="punch_9" type="AudioStreamPlayer" parent="punches"]
+stream = ExtResource("22_p5n7v")
+
+[node name="punch_10" type="AudioStreamPlayer" parent="punches"]
+stream = ExtResource("23_be01k")
+
+[node name="punch_11" type="AudioStreamPlayer" parent="punches"]
+stream = ExtResource("24_3k7la")
+
+[node name="punch_12" type="AudioStreamPlayer" parent="punches"]
+stream = ExtResource("25_4kvgw")
+
+[node name="punch_grunt" type="Node2D" parent="."]
+
+[node name="grunt_1" type="AudioStreamPlayer" parent="punch_grunt"]
+stream = ExtResource("26_svdqi")
+
+[node name="grunt_2" type="AudioStreamPlayer" parent="punch_grunt"]
+stream = ExtResource("27_fcp4g")
+
+[node name="grunt_3" type="AudioStreamPlayer" parent="punch_grunt"]
+stream = ExtResource("28_r706f")
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
+volume_db = -30.0
+autoplay = true
+
+[node name="bgm_battle" type="AudioStreamPlayer" parent="."]
+volume_db = -25.0
+
+[node name="during_battle" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+
+[node name="during_battle2" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+
+[node name="sfx_firework" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_ddgvb")
+
+[node name="ui_sfx" type="Node" parent="."]
+script = ExtResource("30_hsbl7")
+
+[node name="error" type="AudioStreamPlayer" parent="ui_sfx"]
+stream = ExtResource("31_byhtg")
+
+[node name="wrong_word" type="AudioStreamPlayer" parent="ui_sfx"]
+stream = ExtResource("32_13vwa")
+
+[node name="wrong_word2" type="AudioStreamPlayer" parent="ui_sfx"]
+stream = ExtResource("33_1b5cg")
+
+[node name="wrong_word3" type="AudioStreamPlayer" parent="ui_sfx"]
+stream = ExtResource("34_u2mu6")

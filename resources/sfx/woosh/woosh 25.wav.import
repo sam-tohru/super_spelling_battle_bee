@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b8ey242igyxks"
+path="res://.godot/imported/woosh 25.wav-a3b91987741819858075c5deb903edf8.sample"
+
+[deps]
+
+source_file="res://resources/sfx/woosh/woosh 25.wav"
+dest_files=["res://.godot/imported/woosh 25.wav-a3b91987741819858075c5deb903edf8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

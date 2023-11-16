@@ -1,0 +1,248 @@
+[gd_scene load_steps=20 format=3 uid="uid://d0tr1y6sxwtjq"]
+
+[ext_resource type="Script" path="res://board/board.gd" id="1_u1243"]
+[ext_resource type="PackedScene" uid="uid://cf2q1318d0vnv" path="res://board/sprites/board_sprites/board_sprites.tscn" id="2_85kt3"]
+[ext_resource type="Theme" uid="uid://cha8va85xo5a2" path="res://resources/fonts/ThemeMain.tres" id="4_y6pko"]
+[ext_resource type="PackedScene" uid="uid://thug2mx4aqt5" path="res://board/all_subnodes/buttons/gold_left/gold_left.tscn" id="7_50prf"]
+[ext_resource type="Script" path="res://board/all_subnodes/buttons/ReRollButton.gd" id="7_mvip7"]
+[ext_resource type="Script" path="res://board/all_subnodes/buttons/SellButton.gd" id="8_d2x86"]
+[ext_resource type="Script" path="res://board/labels.gd" id="8_jc068"]
+[ext_resource type="Script" path="res://board/all_subnodes/buttons/BattleButton.gd" id="8_klk3s"]
+[ext_resource type="Script" path="res://board/all_subnodes/buttons/MainButton.gd" id="9_4kqrl"]
+[ext_resource type="PackedScene" uid="uid://cbhxagc2ww5eh" path="res://board/all_subnodes/words.tscn" id="9_qhfi1"]
+[ext_resource type="Script" path="res://board/all_subnodes/buttons/TopModeOption.gd" id="10_qgjx4"]
+[ext_resource type="PackedScene" uid="uid://cpua40kk76d63" path="res://board/board_animations/animations.tscn" id="11_0s8q0"]
+[ext_resource type="PackedScene" uid="uid://kvqbu3nmhyhd" path="res://board/all_subnodes/top.tscn" id="13_2ejux"]
+[ext_resource type="PackedScene" uid="uid://cgp3df2k27t6a" path="res://board/all_subnodes/bot.tscn" id="14_nhc4q"]
+[ext_resource type="Script" path="res://board/all_subnodes/battle.gd" id="16_6oteu"]
+[ext_resource type="Script" path="res://board/all_subnodes/shop.gd" id="18_6xf7x"]
+[ext_resource type="PackedScene" uid="uid://cnfocj3xrb6ul" path="res://resources/particles/hit_particle.tscn" id="21_27bkb"]
+[ext_resource type="PackedScene" uid="uid://clk22cgap8uq8" path="res://resources/sfx/sfx_main.tscn" id="27_wxewd"]
+
+[sub_resource type="Gradient" id="Gradient_hnqm5"]
+offsets = PackedFloat32Array(0.150943, 0.773585)
+colors = PackedColorArray(0.772549, 0.505882, 0.160784, 1, 0.654902, 0.243137, 0.172549, 0.435294)
+
+[node name="board" type="Node2D"]
+script = ExtResource("1_u1243")
+metadata/_edit_lock_ = true
+
+[node name="sprites_board" parent="." instance=ExtResource("2_85kt3")]
+
+[node name="labels" type="Control" parent="."]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+script = ExtResource("8_jc068")
+
+[node name="top_word_label" type="RichTextLabel" parent="labels"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 111.0
+offset_right = 613.0
+offset_bottom = 151.0
+theme = ExtResource("4_y6pko")
+bbcode_enabled = true
+text = "[b]Top Word Label"
+
+[node name="bot_label" type="RichTextLabel" parent="labels"]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 215.0
+offset_right = 610.0
+offset_bottom = 255.0
+theme = ExtResource("4_y6pko")
+text = "Bot Label"
+
+[node name="UI" type="Control" parent="."]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+
+[node name="TopButtons" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.034
+anchor_top = 0.058
+anchor_right = 0.034
+anchor_bottom = 0.058
+offset_left = 0.239998
+offset_top = 0.119999
+offset_right = 166.24
+offset_bottom = 40.12
+
+[node name="topHbox" type="HBoxContainer" parent="UI/TopButtons"]
+layout_mode = 2
+
+[node name="MainButton" type="Button" parent="UI/TopButtons/topHbox"]
+layout_mode = 2
+theme = ExtResource("4_y6pko")
+text = "Menu"
+script = ExtResource("9_4kqrl")
+
+[node name="VSeparator" type="VSeparator" parent="UI/TopButtons/topHbox"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="TopModeOption" type="OptionButton" parent="UI/TopButtons/topHbox"]
+layout_mode = 2
+theme = ExtResource("4_y6pko")
+alignment = 1
+item_count = 3
+selected = 1
+allow_reselect = true
+popup/item_0/text = "Ask"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_1/text = "Push"
+popup/item_1/id = 1
+popup/item_2/text = "Swap"
+popup/item_2/id = 2
+script = ExtResource("10_qgjx4")
+
+[node name="MoveLabel" type="Label" parent="UI/TopButtons/topHbox/TopModeOption"]
+layout_mode = 0
+offset_top = -11.0
+offset_right = 212.0
+offset_bottom = 15.0
+scale = Vector2(0.4, 0.4)
+text = "Letter Movement"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MoveLabelBot" type="Label" parent="UI/TopButtons/topHbox/TopModeOption/MoveLabel"]
+visible = false
+layout_mode = 0
+offset_top = 104.0
+offset_right = 212.0
+offset_bottom = 130.0
+text = "Letter Movement"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="midHbox" type="HBoxContainer" parent="UI/TopButtons"]
+layout_mode = 2
+
+[node name="GoldLeft" parent="UI/TopButtons/midHbox" instance=ExtResource("7_50prf")]
+layout_mode = 2
+
+[node name="BotButtons" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.965625
+anchor_top = 0.936111
+anchor_right = 0.965625
+anchor_bottom = 0.936111
+offset_left = -155.0
+offset_top = -29.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="topHbox" type="HBoxContainer" parent="UI/BotButtons"]
+layout_mode = 2
+alignment = 2
+
+[node name="ReRollButton" type="Button" parent="UI/BotButtons/topHbox"]
+layout_mode = 2
+theme = ExtResource("4_y6pko")
+text = "Re-Roll Shop Letters"
+script = ExtResource("7_mvip7")
+
+[node name="VSeparator2" type="VSeparator" parent="UI/BotButtons/topHbox"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="SellButton" type="Button" parent="UI/BotButtons/topHbox"]
+layout_mode = 2
+theme = ExtResource("4_y6pko")
+text = "Freeze"
+script = ExtResource("8_d2x86")
+
+[node name="acting_timer" type="Timer" parent="UI/BotButtons/topHbox/SellButton"]
+wait_time = 0.2
+one_shot = true
+
+[node name="VSeparator" type="VSeparator" parent="UI/BotButtons/topHbox"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="BattleButton" type="Button" parent="UI/BotButtons/topHbox"]
+layout_mode = 2
+theme = ExtResource("4_y6pko")
+text = "Battle"
+script = ExtResource("8_klk3s")
+
+[node name="Words" parent="." instance=ExtResource("9_qhfi1")]
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="burner_particles" type="CPUParticles2D" parent="SFX"]
+visible = false
+position = Vector2(351, 110)
+amount = 156
+emission_shape = 3
+emission_rect_extents = Vector2(48, 80)
+gravity = Vector2(-175, -245)
+scale_amount_min = 32.0
+scale_amount_max = 32.0
+color_ramp = SubResource("Gradient_hnqm5")
+
+[node name="burner_timer" type="Timer" parent="SFX/burner_particles"]
+
+[node name="sfx_main" parent="SFX" instance=ExtResource("27_wxewd")]
+
+[node name="animations" parent="SFX" instance=ExtResource("11_0s8q0")]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="battle_timer" type="Timer" parent="Timers"]
+
+[node name="read_timer" type="Timer" parent="Timers/battle_timer"]
+wait_time = 3.0
+
+[node name="ani_timer" type="Timer" parent="Timers"]
+autostart = true
+
+[node name="mid_marker" type="Marker2D" parent="."]
+position = Vector2(-12, -3)
+
+[node name="top_marker" type="Marker2D" parent="mid_marker"]
+position = Vector2(0, -300)
+
+[node name="bot_marker" type="Marker2D" parent="mid_marker"]
+position = Vector2(0, 300)
+
+[node name="hit_particle" parent="mid_marker" instance=ExtResource("21_27bkb")]
+
+[node name="top" parent="." instance=ExtResource("13_2ejux")]
+modulate = Color(1, 1, 1, 0.784314)
+z_index = -2
+
+[node name="bot" parent="." instance=ExtResource("14_nhc4q")]
+modulate = Color(1, 1, 1, 0.784314)
+z_index = -2
+
+[node name="battle" type="Node" parent="."]
+script = ExtResource("16_6oteu")
+
+[node name="battle_timer" type="Timer" parent="battle"]
+one_shot = true
+
+[node name="read_timer" type="Timer" parent="battle"]
+wait_time = 3.0
+one_shot = true
+
+[node name="shop" type="Node" parent="."]
+script = ExtResource("18_6xf7x")
+
+[connection signal="word_is_valid_change" from="." to="labels" method="_on_board_word_is_valid_change"]

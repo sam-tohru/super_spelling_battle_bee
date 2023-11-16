@@ -1,0 +1,333 @@
+[gd_scene load_steps=11 format=3 uid="uid://dy2bt83ufvtwp"]
+
+[ext_resource type="Shader" path="res://resources/shaders/blur_menu.gdshader" id="1_fnc0l"]
+[ext_resource type="Script" path="res://resources/menus/pause_menu/main_menu.gd" id="1_p85wy"]
+[ext_resource type="Script" path="res://resources/menus/pause_menu/settings.gd" id="2_2gm26"]
+[ext_resource type="Script" path="res://resources/menus/pause_menu/load_save.gd" id="3_4nf1f"]
+[ext_resource type="Theme" uid="uid://cha8va85xo5a2" path="res://resources/fonts/ThemeMain.tres" id="4_lr7bq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ggf3x"]
+shader = ExtResource("1_fnc0l")
+shader_parameter/blur = 2.0
+shader_parameter/brightness = 0.85
+
+[sub_resource type="Animation" id="Animation_ni0xg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/blur")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/brightness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.85]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_pcaq2"]
+resource_name = "pause"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/blur")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.5, 2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/brightness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.85]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0145m"]
+resource_name = "resume"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/blur")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/brightness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.85, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jv63s"]
+_data = {
+"RESET": SubResource("Animation_ni0xg"),
+"pause": SubResource("Animation_pcaq2"),
+"resume": SubResource("Animation_0145m")
+}
+
+[node name="MainMenu" type="ColorRect"]
+process_mode = 3
+top_level = true
+z_index = 4
+material = SubResource("ShaderMaterial_ggf3x")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_p85wy")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menu_splits_hbox" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="settings" type="PanelContainer" parent="CenterContainer/menu_splits_hbox"]
+visible = false
+layout_mode = 2
+script = ExtResource("2_2gm26")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_splits_hbox/settings"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+
+[node name="settings_hbox" type="VBoxContainer" parent="CenterContainer/menu_splits_hbox/settings/MarginContainer"]
+layout_mode = 2
+
+[node name="settings_label" type="Label" parent="CenterContainer/menu_splits_hbox/settings/MarginContainer/settings_hbox"]
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/menu_splits_hbox/settings/MarginContainer/settings_hbox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/menu_splits_hbox/settings/MarginContainer/settings_hbox"]
+layout_mode = 2
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="volume_slider" type="HSlider" parent="CenterContainer/menu_splits_hbox/settings/MarginContainer/settings_hbox"]
+layout_mode = 2
+min_value = -21.0
+max_value = 10.0
+editable = false
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/menu_splits_hbox/settings/MarginContainer/settings_hbox"]
+layout_mode = 2
+
+[node name="main_menu" type="PanelContainer" parent="CenterContainer/menu_splits_hbox"]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_splits_hbox/main_menu"]
+layout_mode = 2
+
+[node name="main_hbox" type="VBoxContainer" parent="CenterContainer/menu_splits_hbox/main_menu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/menu_splits_hbox/main_menu/MarginContainer/main_hbox"]
+layout_mode = 2
+text = "Main Menu"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/menu_splits_hbox/main_menu/MarginContainer/main_hbox"]
+layout_mode = 2
+
+[node name="resumeButton" type="Button" parent="CenterContainer/menu_splits_hbox/main_menu/MarginContainer/main_hbox"]
+layout_mode = 2
+theme = ExtResource("4_lr7bq")
+text = "Play"
+
+[node name="settingsButton" type="Button" parent="CenterContainer/menu_splits_hbox/main_menu/MarginContainer/main_hbox"]
+layout_mode = 2
+theme = ExtResource("4_lr7bq")
+text = "Settings"
+
+[node name="saveButton" type="Button" parent="CenterContainer/menu_splits_hbox/main_menu/MarginContainer/main_hbox"]
+layout_mode = 2
+theme = ExtResource("4_lr7bq")
+text = "Save (N/A)"
+
+[node name="loadButton" type="Button" parent="CenterContainer/menu_splits_hbox/main_menu/MarginContainer/main_hbox"]
+layout_mode = 2
+theme = ExtResource("4_lr7bq")
+text = "Load(N/A)"
+
+[node name="quitButton" type="Button" parent="CenterContainer/menu_splits_hbox/main_menu/MarginContainer/main_hbox"]
+layout_mode = 2
+theme = ExtResource("4_lr7bq")
+text = "Quit"
+
+[node name="load_save" type="PanelContainer" parent="CenterContainer/menu_splits_hbox"]
+visible = false
+layout_mode = 2
+script = ExtResource("3_4nf1f")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_splits_hbox/load_save"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+
+[node name="ls_hbox" type="VBoxContainer" parent="CenterContainer/menu_splits_hbox/load_save/MarginContainer"]
+layout_mode = 2
+
+[node name="ls_label" type="Label" parent="CenterContainer/menu_splits_hbox/load_save/MarginContainer/ls_hbox"]
+layout_mode = 2
+text = "Save"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/menu_splits_hbox/load_save/MarginContainer/ls_hbox"]
+layout_mode = 2
+
+[node name="save_auto" type="Button" parent="CenterContainer/menu_splits_hbox/load_save/MarginContainer/ls_hbox"]
+layout_mode = 2
+disabled = true
+text = "auto-save"
+
+[node name="save_0" type="Button" parent="CenterContainer/menu_splits_hbox/load_save/MarginContainer/ls_hbox"]
+layout_mode = 2
+disabled = true
+text = "save 0"
+
+[node name="save_1" type="Button" parent="CenterContainer/menu_splits_hbox/load_save/MarginContainer/ls_hbox"]
+layout_mode = 2
+disabled = true
+text = "save 1"
+
+[node name="save_2" type="Button" parent="CenterContainer/menu_splits_hbox/load_save/MarginContainer/ls_hbox"]
+layout_mode = 2
+disabled = true
+text = "save 2"
+
+[node name="save_3" type="Button" parent="CenterContainer/menu_splits_hbox/load_save/MarginContainer/ls_hbox"]
+layout_mode = 2
+disabled = true
+text = "save 3"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "RESET"
+libraries = {
+"": SubResource("AnimationLibrary_jv63s")
+}
+
+[connection signal="value_changed" from="CenterContainer/menu_splits_hbox/settings/MarginContainer/settings_hbox/volume_slider" to="CenterContainer/menu_splits_hbox/settings" method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="CenterContainer/menu_splits_hbox/main_menu/MarginContainer/main_hbox/settingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/menu_splits_hbox/main_menu/MarginContainer/main_hbox/saveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="CenterContainer/menu_splits_hbox/main_menu/MarginContainer/main_hbox/loadButton" to="." method="_on_load_button_pressed"]

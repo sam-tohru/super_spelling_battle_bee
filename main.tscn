@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2y3eipsalimb"]
+
+[ext_resource type="PackedScene" uid="uid://d0tr1y6sxwtjq" path="res://board/board.tscn" id="1_b2un7"]
+[ext_resource type="Script" path="res://main.gd" id="1_ok4mw"]
+[ext_resource type="PackedScene" path="res://main_camera.tscn" id="2_nrul4"]
+[ext_resource type="PackedScene" uid="uid://dy2bt83ufvtwp" path="res://resources/menus/pause_menu/main_menu.tscn" id="2_yqgya"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_ok4mw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -5
+offset_left = -549.0
+offset_top = -332.0
+offset_right = 603.0
+offset_bottom = 377.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="Camera2D" parent="." instance=ExtResource("2_nrul4")]
+zoom = Vector2(2, 2)
+
+[node name="board" parent="." instance=ExtResource("1_b2un7")]
+
+[node name="spawn_timer" type="Timer" parent="board"]
+wait_time = 0.1
+
+[node name="MainMenu" parent="." instance=ExtResource("2_yqgya")]
+offset_left = -320.0
+offset_top = -180.0
+offset_right = -320.0
+offset_bottom = -180.0
+scale = Vector2(0.5, 0.5)

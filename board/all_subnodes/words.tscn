@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbhxagc2ww5eh"]
+
+[ext_resource type="Script" path="res://board/all_subnodes/Words.gd" id="1_ahsyv"]
+
+[node name="Words" type="Node"]
+script = ExtResource("1_ahsyv")

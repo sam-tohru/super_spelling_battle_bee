@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://omyk8bqorig1"
+path="res://.godot/imported/lip twiddle 3.wav-1ae93c40c9a74688c83644be9cfc1406.sample"
+
+[deps]
+
+source_file="res://resources/sfx/ui_sfx/lip twiddle 3.wav"
+dest_files=["res://.godot/imported/lip twiddle 3.wav-1ae93c40c9a74688c83644be9cfc1406.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,205 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgp3df2k27t6a"]
+
+[ext_resource type="Script" path="res://board/all_subnodes/bot.gd" id="1_6viut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjuc7"]
+size = Vector2(36, 60)
+
+[node name="bot" type="Node2D" groups=["bot"]]
+script = ExtResource("1_6viut")
+
+[node name="mark_0" type="Marker2D" parent="."]
+position = Vector2(-262, 80)
+
+[node name="bot_area_0" type="Area2D" parent="mark_0" groups=["board_area", "bot_0", "bot_area"]]
+
+[node name="ColorRect" type="ColorRect" parent="mark_0/bot_area_0"]
+z_index = -1
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="mark_0/bot_area_0/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 41.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark_0/bot_area_0"]
+shape = SubResource("RectangleShape2D_rjuc7")
+
+[node name="mark_1" type="Marker2D" parent="."]
+position = Vector2(-206, 80)
+
+[node name="bot_area_1" type="Area2D" parent="mark_1" groups=["board_area", "bot_1", "bot_area"]]
+
+[node name="ColorRect" type="ColorRect" parent="mark_1/bot_area_1"]
+z_index = -1
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="mark_1/bot_area_1/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 41.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark_1/bot_area_1"]
+shape = SubResource("RectangleShape2D_rjuc7")
+
+[node name="mark_2" type="Marker2D" parent="."]
+position = Vector2(-146, 80)
+
+[node name="bot_area_2" type="Area2D" parent="mark_2" groups=["board_area", "bot_2", "bot_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark_2/bot_area_2"]
+shape = SubResource("RectangleShape2D_rjuc7")
+
+[node name="ColorRect" type="ColorRect" parent="mark_2/bot_area_2"]
+z_index = -1
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="mark_2/bot_area_2/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 41.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="mark_3" type="Marker2D" parent="."]
+position = Vector2(-86, 80)
+
+[node name="bot_area_3" type="Area2D" parent="mark_3" groups=["board_area", "bot_3", "bot_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark_3/bot_area_3"]
+shape = SubResource("RectangleShape2D_rjuc7")
+
+[node name="ColorRect" type="ColorRect" parent="mark_3/bot_area_3"]
+z_index = -1
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="mark_3/bot_area_3/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 41.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="mark_4" type="Marker2D" parent="."]
+position = Vector2(-26, 80)
+
+[node name="bot_area_4" type="Area2D" parent="mark_4" groups=["board_area", "bot_4", "bot_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark_4/bot_area_4"]
+shape = SubResource("RectangleShape2D_rjuc7")
+
+[node name="ColorRect" type="ColorRect" parent="mark_4/bot_area_4"]
+z_index = -1
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="mark_4/bot_area_4/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 41.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="mark_5" type="Marker2D" parent="."]
+position = Vector2(34, 80)
+
+[node name="bot_area_5" type="Area2D" parent="mark_5" groups=["board_area", "bot_5", "bot_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark_5/bot_area_5"]
+shape = SubResource("RectangleShape2D_rjuc7")
+
+[node name="ColorRect" type="ColorRect" parent="mark_5/bot_area_5"]
+z_index = -1
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="mark_5/bot_area_5/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 41.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="mark_6" type="Marker2D" parent="."]
+position = Vector2(94, 80)
+
+[node name="bot_area_6" type="Area2D" parent="mark_6" groups=["board_area", "bot_6", "bot_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark_6/bot_area_6"]
+shape = SubResource("RectangleShape2D_rjuc7")
+
+[node name="ColorRect" type="ColorRect" parent="mark_6/bot_area_6"]
+z_index = -1
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="mark_6/bot_area_6/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 41.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="mark_spawn" type="Marker2D" parent="."]
+position = Vector2(-457, 136)
+
+[node name="mark_leave" type="Marker2D" parent="."]
+position = Vector2(425, 147)
+
+[connection signal="input_event" from="mark_0/bot_area_0" to="." method="_on_bot_area_0_input_event"]
+[connection signal="input_event" from="mark_1/bot_area_1" to="." method="_on_bot_area_1_input_event"]
+[connection signal="input_event" from="mark_2/bot_area_2" to="." method="_on_bot_area_2_input_event"]
+[connection signal="input_event" from="mark_3/bot_area_3" to="." method="_on_bot_area_3_input_event"]
+[connection signal="input_event" from="mark_4/bot_area_4" to="." method="_on_bot_area_4_input_event"]
+[connection signal="input_event" from="mark_5/bot_area_5" to="." method="_on_bot_area_5_input_event"]
+[connection signal="input_event" from="mark_6/bot_area_6" to="." method="_on_bot_area_6_input_event"]

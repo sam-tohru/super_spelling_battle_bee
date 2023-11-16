@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjuby2ajydwig"]
+
+[ext_resource type="Script" path="res://board/all_subnodes/sell_area/sell_area.gd" id="1_hraoo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_einml"]
+size = Vector2(48, 48)
+
+[node name="sell_area" type="Area2D"]
+script = ExtResource("1_hraoo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+mouse_filter = 2
+color = Color(0.156863, 0.12549, 0.45098, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_einml")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+theme_override_constants/line_spacing = -1
+text = "Sell
+/
+Save"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="acting_timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

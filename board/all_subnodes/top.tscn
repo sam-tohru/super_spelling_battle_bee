@@ -1,0 +1,210 @@
+[gd_scene load_steps=3 format=3 uid="uid://kvqbu3nmhyhd"]
+
+[ext_resource type="Script" path="res://board/all_subnodes/top.gd" id="1_k8due"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjuc7"]
+size = Vector2(36, 60)
+
+[node name="top" type="Node2D" groups=["top"]]
+position = Vector2(150, -200)
+script = ExtResource("1_k8due")
+
+[node name="mark_0" type="Marker2D" parent="."]
+position = Vector2(-262, 80)
+
+[node name="top_area_0" type="Area2D" parent="mark_0" groups=["board_area", "top_0", "top_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark_0/top_area_0"]
+shape = SubResource("RectangleShape2D_rjuc7")
+
+[node name="ColorRect" type="ColorRect" parent="mark_0/top_area_0"]
+z_index = -1
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="mark_0/top_area_0/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 41.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="mark_1" type="Marker2D" parent="."]
+position = Vector2(-206, 80)
+
+[node name="top_area_1" type="Area2D" parent="mark_1" groups=["board_area", "top_1", "top_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark_1/top_area_1"]
+shape = SubResource("RectangleShape2D_rjuc7")
+
+[node name="ColorRect" type="ColorRect" parent="mark_1/top_area_1"]
+z_index = -1
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="mark_1/top_area_1/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 41.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="mark_2" type="Marker2D" parent="."]
+position = Vector2(-146, 80)
+
+[node name="top_area_2" type="Area2D" parent="mark_2" groups=["board_area", "top_2", "top_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark_2/top_area_2"]
+shape = SubResource("RectangleShape2D_rjuc7")
+
+[node name="ColorRect" type="ColorRect" parent="mark_2/top_area_2"]
+z_index = -1
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="mark_2/top_area_2/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 41.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="mark_3" type="Marker2D" parent="."]
+position = Vector2(-86, 80)
+
+[node name="top_area_3" type="Area2D" parent="mark_3" groups=["board_area", "top_3", "top_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark_3/top_area_3"]
+shape = SubResource("RectangleShape2D_rjuc7")
+
+[node name="ColorRect" type="ColorRect" parent="mark_3/top_area_3"]
+z_index = -1
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="mark_3/top_area_3/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 41.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="mark_4" type="Marker2D" parent="."]
+position = Vector2(-26, 80)
+
+[node name="top_area_4" type="Area2D" parent="mark_4" groups=["board_area", "top_4", "top_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark_4/top_area_4"]
+shape = SubResource("RectangleShape2D_rjuc7")
+
+[node name="ColorRect" type="ColorRect" parent="mark_4/top_area_4"]
+z_index = -1
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="mark_4/top_area_4/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 41.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="mark_5" type="Marker2D" parent="."]
+position = Vector2(34, 80)
+
+[node name="top_area_5" type="Area2D" parent="mark_5" groups=["board_area", "top_5", "top_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark_5/top_area_5"]
+shape = SubResource("RectangleShape2D_rjuc7")
+
+[node name="ColorRect" type="ColorRect" parent="mark_5/top_area_5"]
+z_index = -1
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="mark_5/top_area_5/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 41.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="mark_6" type="Marker2D" parent="."]
+position = Vector2(94, 80)
+
+[node name="top_area_6" type="Area2D" parent="mark_6" groups=["board_area", "top_6", "top_area"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mark_6/top_area_6"]
+shape = SubResource("RectangleShape2D_rjuc7")
+
+[node name="ColorRect" type="ColorRect" parent="mark_6/top_area_6"]
+z_index = -1
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 18.0
+offset_bottom = 22.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="mark_6/top_area_6/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 34.0
+offset_bottom = 41.0
+mouse_filter = 2
+color = Color(0.113725, 0.0862745, 0.0745098, 1)
+
+[node name="mark_spawn" type="Marker2D" parent="."]
+position = Vector2(-588, 136)
+
+[node name="mark_leave" type="Marker2D" parent="."]
+position = Vector2(425, 147)
+
+[node name="acting_timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="input_event" from="mark_0/top_area_0" to="." method="_on_top_area_0_input_event"]
+[connection signal="input_event" from="mark_1/top_area_1" to="." method="_on_top_area_1_input_event"]
+[connection signal="input_event" from="mark_2/top_area_2" to="." method="_on_top_area_2_input_event"]
+[connection signal="input_event" from="mark_3/top_area_3" to="." method="_on_top_area_3_input_event"]
+[connection signal="input_event" from="mark_4/top_area_4" to="." method="_on_top_area_4_input_event"]
+[connection signal="input_event" from="mark_5/top_area_5" to="." method="_on_top_area_5_input_event"]
+[connection signal="input_event" from="mark_6/top_area_6" to="." method="_on_top_area_6_input_event"]

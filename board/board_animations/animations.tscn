@@ -1,0 +1,176 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpua40kk76d63"]
+
+[ext_resource type="Script" path="res://board/board_animations/animations.gd" id="1_vwfas"]
+[ext_resource type="FontFile" uid="uid://ckxk3elimfey3" path="res://resources/fonts/Kaph-Regular.otf" id="2_hmldn"]
+
+[sub_resource type="Curve" id="Curve_7axe5"]
+max_value = 20.0
+_data = [Vector2(0.0123457, 20), 0.0, 0.0, 0, 0, Vector2(0.901235, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_0iio0"]
+offsets = PackedFloat32Array(0.183962, 0.825472)
+colors = PackedColorArray(0.654902, 0.243137, 0.172549, 1, 0.870588, 0.666667, 0.192157, 0.254902)
+
+[node name="animations" type="Node2D"]
+top_level = true
+script = ExtResource("1_vwfas")
+
+[node name="won" type="Node2D" parent="."]
+visible = false
+
+[node name="background_particles" type="CPUParticles2D" parent="won"]
+emitting = false
+amount = 156
+emission_shape = 3
+emission_rect_extents = Vector2(140, 80)
+gravity = Vector2(0, 0)
+scale_amount_min = 65.0
+scale_amount_max = 75.0
+color = Color(0.933333, 0.729412, 0.45098, 1)
+
+[node name="Label" type="Label" parent="won"]
+offset_left = -190.0
+offset_top = -31.0
+offset_right = 173.0
+offset_bottom = 13.0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/font_color = Color(0.113725, 0.0862745, 0.0745098, 1)
+theme_override_fonts/font = ExtResource("2_hmldn")
+text = "YOU WON! 
+YOU'RE A SPELLING BEE!"
+horizontal_alignment = 1
+
+[node name="firework_1" type="CPUParticles2D" parent="won"]
+position = Vector2(-67, -71)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 85
+one_shot = true
+explosiveness = 0.78
+randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_7axe5")
+color_ramp = SubResource("Gradient_0iio0")
+
+[node name="firework_2" type="CPUParticles2D" parent="won"]
+position = Vector2(148, 41)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 85
+one_shot = true
+explosiveness = 0.78
+randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_7axe5")
+color_ramp = SubResource("Gradient_0iio0")
+
+[node name="firework_3" type="CPUParticles2D" parent="won"]
+position = Vector2(-132, 87)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 85
+one_shot = true
+explosiveness = 0.78
+randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_7axe5")
+color_ramp = SubResource("Gradient_0iio0")
+
+[node name="firework_4" type="CPUParticles2D" parent="won"]
+position = Vector2(120, -90)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 85
+one_shot = true
+explosiveness = 0.78
+randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_7axe5")
+color_ramp = SubResource("Gradient_0iio0")
+
+[node name="lost" type="Node2D" parent="."]
+visible = false
+
+[node name="background_particles" type="CPUParticles2D" parent="lost"]
+emitting = false
+amount = 156
+emission_shape = 3
+emission_rect_extents = Vector2(70, 40)
+gravity = Vector2(0, 0)
+scale_amount_min = 55.0
+scale_amount_max = 75.0
+color = Color(0.933333, 0.729412, 0.45098, 1)
+
+[node name="Label" type="Label" parent="lost"]
+offset_left = -182.0
+offset_top = -21.0
+offset_right = 181.0
+offset_bottom = 23.0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/font_color = Color(0.113725, 0.0862745, 0.0745098, 1)
+theme_override_fonts/font = ExtResource("2_hmldn")
+text = "YOU LOST! 
+:("
+horizontal_alignment = 1
+
+[node name="tie" type="Node2D" parent="."]
+visible = false
+
+[node name="background_particles" type="CPUParticles2D" parent="tie"]
+emitting = false
+amount = 156
+emission_shape = 3
+emission_rect_extents = Vector2(70, 40)
+gravity = Vector2(0, 0)
+scale_amount_min = 55.0
+scale_amount_max = 75.0
+color = Color(0.933333, 0.729412, 0.45098, 1)
+
+[node name="Label" type="Label" parent="tie"]
+offset_left = -184.0
+offset_top = -11.0
+offset_right = 179.0
+offset_bottom = 33.0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/font_color = Color(0.113725, 0.0862745, 0.0745098, 1)
+theme_override_fonts/font = ExtResource("2_hmldn")
+text = "It was a tie"
+horizontal_alignment = 1
+
+[node name="fight" type="Node2D" parent="."]
+visible = false
+
+[node name="background_particles" type="CPUParticles2D" parent="fight"]
+position = Vector2(-3, -12)
+emitting = false
+amount = 156
+emission_shape = 3
+emission_rect_extents = Vector2(70, 40)
+gravity = Vector2(0, 0)
+scale_amount_min = 50.0
+scale_amount_max = 50.0
+color = Color(0.654902, 0.243137, 0.172549, 1)
+
+[node name="Label" type="Label" parent="fight"]
+offset_left = -184.0
+offset_top = -11.0
+offset_right = 179.0
+offset_bottom = 33.0
+scale = Vector2(0.1, 0.1)
+theme_override_colors/font_color = Color(0.113725, 0.0862745, 0.0745098, 1)
+theme_override_fonts/font = ExtResource("2_hmldn")
+text = "FIGHT!"
+horizontal_alignment = 1

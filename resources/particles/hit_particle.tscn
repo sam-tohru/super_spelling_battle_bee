@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnfocj3xrb6ul"]
+
+[ext_resource type="Script" path="res://resources/particles/hit_particle.gd" id="1_m0xxu"]
+
+[sub_resource type="Curve" id="Curve_0ey1j"]
+max_value = 20.0
+_data = [Vector2(0.0164609, 6.72727), 0.0, 0.0, 0, 0, Vector2(0.901235, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_67u6c"]
+offsets = PackedFloat32Array(0.183962, 0.825472)
+colors = PackedColorArray(0.654902, 0.243137, 0.172549, 1, 0.654902, 0.243137, 0.172549, 0)
+
+[node name="hit_particle" type="Node2D"]
+script = ExtResource("1_m0xxu")
+
+[node name="hit_1" type="CPUParticles2D" parent="."]
+position = Vector2(2, -12)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 32
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.4
+randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_0ey1j")
+color_ramp = SubResource("Gradient_67u6c")
+
+[node name="hit_2" type="CPUParticles2D" parent="."]
+position = Vector2(-2, 12)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 32
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.4
+randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_0ey1j")
+color_ramp = SubResource("Gradient_67u6c")
+
+[node name="hit_3" type="CPUParticles2D" parent="."]
+position = Vector2(-1, 1)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 32
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.4
+randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_0ey1j")
+color_ramp = SubResource("Gradient_67u6c")

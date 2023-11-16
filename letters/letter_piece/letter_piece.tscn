@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://tldf56rdq6og"]
+
+[ext_resource type="Script" path="res://letters/letter_piece/letter_piece.gd" id="1_eyhka"]
+[ext_resource type="FontFile" uid="uid://3yr547d5vk0b" path="res://resources/fonts/Peaberry-Base.otf" id="2_sr1og"]
+
+[node name="letter_piece" type="Node2D"]
+script = ExtResource("1_eyhka")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -48.0
+offset_right = 16.0
+offset_bottom = -16.0
+mouse_filter = 2
+color = Color(0.901961, 0.584314, 0.321569, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 30.0
+offset_bottom = 30.0
+mouse_filter = 2
+color = Color(0.933333, 0.729412, 0.45098, 1)
+
+[node name="character_label" type="Label" parent="."]
+offset_left = -5.0
+offset_top = -46.0
+offset_right = 6.0
+offset_bottom = -27.0
+theme_override_colors/font_color = Color(0.113725, 0.0862745, 0.0745098, 1)
+theme_override_fonts/font = ExtResource("2_sr1og")
+text = "A"
+horizontal_alignment = 1
+
+[node name="attack_label" type="Label" parent="."]
+offset_left = -14.0
+offset_top = -36.0
+offset_right = -4.0
+offset_bottom = -17.0
+theme_override_colors/font_color = Color(0.113725, 0.0862745, 0.0745098, 1)
+theme_override_fonts/font = ExtResource("2_sr1og")
+theme_override_font_sizes/font_size = 16
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="health_label" type="Label" parent="."]
+offset_left = 4.0
+offset_top = -36.0
+offset_right = 14.0
+offset_bottom = -17.0
+theme_override_colors/font_color = Color(0.113725, 0.0862745, 0.0745098, 1)
+theme_override_fonts/font = ExtResource("2_sr1og")
+theme_override_font_sizes/font_size = 16
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 2

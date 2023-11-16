@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://cf2q1318d0vnv"]
+
+[ext_resource type="Texture2D" uid="uid://dmsje7g8joiuu" path="res://board/sprites/0_wood.png" id="1_t3hsd"]
+[ext_resource type="Shader" path="res://board/sprites/board_sprites/shader_wood.gdshader" id="1_umulv"]
+[ext_resource type="Texture2D" uid="uid://3pk34rvtfdiw" path="res://board/sprites/1_felt.png" id="2_ce15v"]
+[ext_resource type="Texture2D" uid="uid://c5mw011y36vns" path="res://resources/textures/Wood_03-128x128.png" id="2_g812h"]
+[ext_resource type="Texture2D" uid="uid://yifaab6k61yj" path="res://board/sprites/Cloth_18-128x128.png" id="5_l2lex"]
+[ext_resource type="Texture2D" uid="uid://cfgas24piknay" path="res://board/sprites/2_corners.png" id="6_jgh47"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mful2"]
+shader = ExtResource("1_umulv")
+shader_parameter/color = Color(0.2, 0.160784, 0.137255, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xdkrb"]
+shader = ExtResource("1_umulv")
+shader_parameter/color = Color(0.12549, 0.45098, 0.156863, 0.498039)
+
+[node name="sprites_board" type="Node2D"]
+z_index = -2
+
+[node name="WoodTexture" type="TextureRect" parent="."]
+z_index = -2
+material = SubResource("ShaderMaterial_mful2")
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+texture = ExtResource("2_g812h")
+stretch_mode = 1
+
+[node name="0_wood" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.392157)
+z_index = -1
+texture = ExtResource("1_t3hsd")
+
+[node name="1_felt" type="Sprite2D" parent="."]
+z_index = -2
+scale = Vector2(1, 1.00556)
+texture = ExtResource("2_ce15v")
+
+[node name="FeltTexture" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_xdkrb")
+offset_left = -301.0
+offset_top = -161.0
+offset_right = 301.0
+offset_bottom = 161.0
+texture = ExtResource("5_l2lex")
+stretch_mode = 1
+flip_h = true
+
+[node name="2_corners" type="Sprite2D" parent="."]
+scale = Vector2(1, 1.00556)
+texture = ExtResource("6_jgh47")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+
+[node name="Felt" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ce15v")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://pw70ddxq8m6w"]
+
+[ext_resource type="Script" path="res://letters/frozen_rect/frozen_rect.gd" id="1_kbc7s"]
+
+[node name="frozen_rect" type="ColorRect"]
+visible = false
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+mouse_filter = 1
+color = Color(0, 1, 1, 0.34902)
+script = ExtResource("1_kbc7s")
+
+[node name="frozen_particles" type="CPUParticles2D" parent="."]
+position = Vector2(16, 16)
+amount = 156
+emission_shape = 3
+emission_rect_extents = Vector2(18, 18)
+gravity = Vector2(0, 0)
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color = Color(1, 1, 1, 0.313726)
