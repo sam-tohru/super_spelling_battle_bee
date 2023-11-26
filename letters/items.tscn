@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvj1ue05eqj5k"]
+
+[ext_resource type="Script" path="res://letters/letter.gd" id="1_jvirh"]
+[ext_resource type="Script" path="res://letters/all_items/stats_item.gd" id="2_2sp51"]
+[ext_resource type="PackedScene" uid="uid://dp7g81bsbw1ed" path="res://letters/all_items/item_piece.tscn" id="3_dlalu"]
+[ext_resource type="PackedScene" uid="uid://cch7p6c4tw3lm" path="res://letters/all_items/item_sprite.tscn" id="4_iey7i"]
+[ext_resource type="PackedScene" uid="uid://pw70ddxq8m6w" path="res://letters/frozen_rect/frozen_rect.tscn" id="5_hbwp0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6icrl"]
+size = Vector2(32, 64)
+
+[node name="item" type="Area2D" groups=["item"]]
+script = ExtResource("1_jvirh")
+
+[node name="stats" type="Node" parent="."]
+script = ExtResource("2_2sp51")
+
+[node name="letter_shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_6icrl")
+
+[node name="letter_piece" parent="." instance=ExtResource("3_dlalu")]
+
+[node name="letter_sprite" parent="." instance=ExtResource("4_iey7i")]
+
+[node name="frozen_rect" parent="." instance=ExtResource("5_hbwp0")]
+
+[node name="click_timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="focus_shake" type="Timer" parent="."]
+wait_time = 0.4
+
+[node name="UnfocusButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -19.0
+offset_top = 22.0
+offset_right = 57.0
+offset_bottom = 46.0
+scale = Vector2(0.5, 0.5)
+focus_mode = 0
+disabled = true
+text = "unfocus"
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="letter_stats_updated" from="." to="letter_piece" method="_on_item_letter_stats_updated"]
+[connection signal="letter_stats_updated" from="." to="letter_sprite" method="_on_item_letter_stats_updated"]

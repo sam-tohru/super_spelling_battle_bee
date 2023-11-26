@@ -1,6 +1,10 @@
 extends Control
 
+@onready var parent = get_parent()
+
 @onready var top_word_label: RichTextLabel = $top_word_label
+@onready var bot_label = $bot_label
+
 
 static var valid_word_string = 'Word is valid, you can battle!'
 static var wrong_word_string = 'Make a real word on the top row'
@@ -16,7 +20,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	bot_label.text = str('SETTING UP: ', parent.SETTING_UP) # Sometimes board stays Setting_Up, this just shows it for debugging
 	update_valid_word_label() # REMOVE THIS LATER FROM PROCESS? IDK
 
 

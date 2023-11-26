@@ -140,16 +140,80 @@ func what_to_do_top(what_slot: int):
 		
 		var moved = false
 		
-		if parent.top_letters.has(globvars.focused_letter): moved = top_to_top(what_slot)
+		if globvars.focused_letter.is_in_group('item'): moved = play_item(what_slot)
+		elif parent.top_letters.has(globvars.focused_letter): moved = top_to_top(what_slot)
 		elif parent.bot_letters.has(globvars.focused_letter): moved = move_to_top(what_slot)
 		
 		## Removes focus from letter, if it has been moved
+		
 		if globvars.focused_letter != null and moved:
 			globvars.focused_letter.focus_or_unfocus_letter(false)
 		
 		# Board.SETTING_UP needs to be switched from the signal below (it's just animation playing bool, so change with that)
 		emit_signal('area_click_released', 'top', what_slot) 
 
+####################################################################################################
+### Items play ###
+func play_item(what_slot):
+	var succesful_play = false # What it returns, if succesfull removes item
+	var item_name = globvars.focused_letter.stats.item_name
+	var item_target_type = globvars.focused_letter.stats.item_target_type
+	var item_data = globvars.focused_letter.stats.item_data
+	
+	if item_data.is_empty():
+		printerr('Play_item in top error, item data is empty')
+		return false
+	elif parent.shop.check_if_can_play(globvars.focused_letter.stats.cost) == false: return false
+	
+	
+	if item_target_type == 'single': succesful_play = play_single_target_item(what_slot, item_name, item_data)
+	elif item_target_type == 'random': succesful_play = play_random_target_item(item_name, item_data)
+	
+	if !succesful_play: printerr('item failed to play at last step') ; return succesful_play
+	
+	parent.shop.charge_player(globvars.focused_letter.stats.cost)
+	
+	return succesful_play
+
+func play_single_target_item(what_slot: int, item_name: String, item_data: Array): 
+	# Won't play if slot is empty
+	if parent.top_letters[what_slot] == null: return false
+	
+	
+	if item_data[1] == 'stats': # Buff stats of letter with item_data[2]
+		parent.top_letters[what_slot].stats.upgrade_stats(item_data[2])
+		parent.leave_animation(globvars.focused_letter)
+	elif item_data[1] == 'effect':
+		parent.top_letters[what_slot].stats.add_effect(item_data[2])
+		parent.leave_animation(globvars.focused_letter)
+	
+	return true
+
+func play_random_target_item(item_name: String, item_data: Array):
+	if item_data[1] != 'stats': printerr('in board.top -> NEED TO SETUP EFFECTS FOR RANDOM UNITS (idk if i will add this ngl, but just-in-case)') ; return false
+	# Below assumes we only buff stats (as above ^^ blocks it)
+	
+	var amount_to_target = item_data[3] # Amount of units it targets
+	
+	# Checks if there is even that amount of letters in top_row
+	var letters_in_top = []
+	for letter in parent.top_letters:
+		if letter != null: letters_in_top.append(letter)
+	if letters_in_top.size() == 0: return false # No letters in top, just doesn't play
+	elif letters_in_top.size() < amount_to_target: amount_to_target = letters_in_top.size() # if less than target_amount, sets target_amount to that
+	
+	# Randomly picks letters to upgrade
+	while amount_to_target > 0:
+		if letters_in_top.is_empty(): break # Stops loop if array is empty
+		
+		var letter_to_buff = letters_in_top.pick_random()
+		letters_in_top.erase(letter_to_buff) # Removes from array, as can't buff things more than once
+		letter_to_buff.stats.upgrade_stats(item_data[2]) # Buffs letter with item_data[2]
+		amount_to_target -= 1
+	
+	# All successful -> removes item also
+	parent.leave_animation(globvars.focused_letter)
+	return true
 
 ####################################################################################################
 ### Signals Area ###

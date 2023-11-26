@@ -9,7 +9,7 @@ signal word_is_valid_change
 @onready var top = $top
 @onready var bot = $bot
 @onready var battle = $battle
-@onready var shop = $shop
+@onready var shop = $shop as ShopClass
 
 @onready var mark_spawn = $bot/mark_spawn
 @onready var mark_leave = $bot/mark_leave
@@ -62,12 +62,18 @@ func update_global_letters(): # there's a globvars bot_letters & top_letters tha
 func _process(delta):
 	update_global_letters()
 
-func place_letter_onto_board(letter): ## Places letter onto bot only
-	var marker_int = get_free_spot('bot')
-	if marker_int == -1: push_error('GET_FREE_SPOT IS FULL IN PLANCE_LETTER_ONTO_BOARD'); return
+func place_letter_onto_board(letter, on_bot: bool = true): ## Places letter onto bot only
 	
-	bot_letters[marker_int] = letter
-	place_animation(letter, marker_int)
+	if on_bot:
+		var marker_int = get_free_spot('bot')
+		if marker_int == -1: push_error('GET_FREE_SPOT IS FULL IN PLANCE_LETTER_ONTO_BOARD'); return
+		bot_letters[marker_int] = letter
+		place_animation(letter, marker_int)
+	else:
+		var marker_int = get_free_spot('top')
+		if marker_int == -1: push_error('GET_FREE_SPOT IS FULL IN PLANCE_LETTER_ONTO_BOARD'); return
+		top_letters[marker_int] = letter
+		place_animation(letter, marker_int, false)
 
 # Moves to empty slot 
 func move_letter_into_empty_slot(letter_to_place: LetterClass, what_slot: int, from_where: String = 'none', to_top: bool = true):
@@ -117,7 +123,14 @@ func clear_bot() -> bool: # clears all in bot
 	
 	SETTING_UP = true
 	var i = 0
-	for letter in bot_letters:
+	for letter in top_letters: # Removes any added letters from top (e.g. '?' from effects)
+		if letter != null:
+			if letter.stats.character == '?':
+				bot_letters[i] = null
+				leave_animation(letter)
+			i += 1
+	i = 0
+	for letter in bot_letters: # Removes all from bot
 		if letter != null:
 			bot_letters[i] = null
 			leave_animation(letter)
@@ -147,8 +160,10 @@ func save_frozen_letters(): ## Saves frozen letters into seperate array, to spaw
 		if letter == null: pass # Skips empty slots
 		
 		elif letter.frozen == true: 
-			if letter.is_item == false: 
-				frozen_bot_letters[i] = [letter.is_item, letter.stats.character, letter.stats.attack, letter.stats.health]
+			if letter.is_in_group('item') == false: 
+				frozen_bot_letters[i] = [false, letter.stats.character, letter.stats.attack, letter.stats.health]
+			else: # Freezes Items (just saves name, and re-gets it based off that
+				frozen_bot_letters[i] = letter.stats.item_name
 		
 		i += 1
 

@@ -24,6 +24,22 @@ signal can_focus_letter_change
 
 @onready var top_letter_movement: String = 'push'
 
+## Items -> holds array [target_type, stat_or_effect, buff_amount/name_of_buff, amount_of_units_hits/other_info, cost_of_item]
+static var item_dict: Dictionary = {
+	'apple': ['single', 'stats', [1,1], 1, 4],
+	'bread': ['random', 'stats', [0,1], 2, 4], # 2 is the amount of letters it hits, 4 after is the cost of item
+	'shell': ['single', 'effect', 'shield', 1, 4],
+	'lizard': ['single', 'effect', 'revive', 1, 4],
+	'firebomb': ['single', 'effect', 'explosive', 1, 4],
+	'feather': ['single', 'effect', 'summon', 1, 4]
+}
+static var item_effect_types: Dictionary = { # Stores all effects with when they should proc (for reference, e.g. 'damage' = when taken damage)
+	'shield': ['damage'],
+	'revive': ['death'],
+	'explosive': ['death'],
+	'summon': ['death']
+}
+
 ## Words
 static var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 static var letter_stats: Dictionary = {

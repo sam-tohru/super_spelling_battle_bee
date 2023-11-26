@@ -12,6 +12,8 @@ func _ready():
 	
 	globals.re_roll_shop.connect(shop_round)
 	
+	globals.spawn_set_letter.connect(spawn_set_letter)
+	
 	# globals.get_all_users()
 	shop_round()
 	
@@ -35,6 +37,7 @@ func next_round(): # Clears board and changes round
 	else:# Go-to shop round
 		board.clear_bot()
 		shop_round()
+		globals.emit_signal('new_shop_round')
 
 func shop_round(): ## Need to incorperate spawning items (into last slot)
 	if board.SETTING_UP: push_error('BOARD ALREADY SETTING UP, SHOP_ROUND') ; return
@@ -46,7 +49,9 @@ func shop_round(): ## Need to incorperate spawning items (into last slot)
 	var i = 0
 	for letter_slot in board.bot_letters:
 		if i == 0 or i == 5: pass # Shop has less letter slots than battle (so skip slots turned off [1 & 5])
-		elif i == 6: pass ## This will be item spawning [6]
+		elif i == 6: ## This will be item spawning [slot 6]
+			if board.frozen_bot_letters[i] != null: spawn_item(board.frozen_bot_letters[i]) ; board.frozen_bot_letters[i] = null
+			else: spawn_item()
 		elif letter_slot == null: # Spawns letters into shop slots [1,2,3,4]
 			
 			if board.frozen_bot_letters[i] != null: # if any frozen letter, brings that in
@@ -59,6 +64,28 @@ func shop_round(): ## Need to incorperate spawning items (into last slot)
 		
 		i += 1
 	board.SETTING_UP = false
+
+func spawn_item(item_name: String = ''):
+	
+	var load_item = load("res://letters/items.tscn")
+	var item_instance = load_item.instantiate() as LetterClass
+	item_instance.position = board.mark_spawn.position
+	call_deferred('add_child', item_instance)
+	board.place_letter_onto_board(item_instance)
+	
+	spawn_timer.start()
+	await spawn_timer.timeout
+	
+	# Sets up random item here
+	var rand_item_key = globvars.item_dict.keys()[randi() % globvars.item_dict.size()]
+	var rand_item_data = globvars.item_dict[rand_item_key]
+	
+	if item_name != '': # Get's frozen / specific letter
+		rand_item_key = item_name
+		rand_item_data = globvars.item_dict[rand_item_key]
+		item_instance.freeze_or_unfreeze_letter() # Freezes (rn this if only runs if item was frozen, so take that into account if change)
+	
+	item_instance.stats.set_up_item(rand_item_key, rand_item_data)
 
 func spawn_letter(): ## Spawns letter from base stats (shop round mainly)
 	# ADD NEW LETTER INSTANCE-
@@ -77,7 +104,7 @@ func spawn_letter(): ## Spawns letter from base stats (shop round mainly)
 	
 	letter_instance.stats.set_up_letter(let, stat_arr[0], stat_arr[1])
 
-func spawn_set_letter(let: String, att: int, hlth: int, is_frozen: bool = false): ## spawns & sets custom letters (battle round mainly)
+func spawn_set_letter(let: String, att: int, hlth: int, is_frozen: bool = false, on_bot: bool = true): ## spawns & sets custom letters (battle round mainly)
 	# ADD NEW LETTER INSTANCE
 	var load_letter = load("res://letters/letter.tscn")
 	var letter_instance = load_letter.instantiate() as LetterClass
@@ -85,7 +112,7 @@ func spawn_set_letter(let: String, att: int, hlth: int, is_frozen: bool = false)
 	
 	await call_deferred('add_child', letter_instance)
 	
-	board.place_letter_onto_board(letter_instance)
+	board.place_letter_onto_board(letter_instance, on_bot)
 	
 	spawn_timer.start()
 	await spawn_timer.timeout
@@ -115,7 +142,7 @@ func battle_round(): # Sets up battle round ### NEED TO RE-DO WHEN I HAVE NEW SW
 	
 	## Battle in board.battle
 	board.battle.battle_board()
-	
+
 
 func error_spawn():
 	printerr('ERROR SPAWNING, probs from no data from SilentWolf for battle_round but idk...')

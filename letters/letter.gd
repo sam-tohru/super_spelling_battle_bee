@@ -12,9 +12,7 @@ signal letter_stats_updated
 @onready var in_top_row: bool = false
 
 ## Stats ##
-@onready var stats = $stats as StatsLetter
-
-@onready var is_item: bool = false # For when I make items (they'd need to be same class as letters)
+@onready var stats = $stats
 
 @onready var frozen = false
 @onready var frozen_rect = $frozen_rect
@@ -122,3 +120,4 @@ func go_back_to_start_pos(): # Player didn't do anything with drag, goes back to
 	var tween = create_tween()
 	tween.tween_property(letter_sprite, 'global_position', drag_start_pos, 0.1)
 	tween.tween_callback(globvars.change_focus_new_letter.bind(false)) # Can set new focus letter (just can't while dragging)
+

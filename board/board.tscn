@@ -158,6 +158,9 @@ theme = ExtResource("4_y6pko")
 text = "Re-Roll Shop Letters"
 script = ExtResource("7_mvip7")
 
+[node name="safety_timer" type="Timer" parent="UI/BotButtons/topHbox/ReRollButton"]
+one_shot = true
+
 [node name="VSeparator2" type="VSeparator" parent="UI/BotButtons/topHbox"]
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2

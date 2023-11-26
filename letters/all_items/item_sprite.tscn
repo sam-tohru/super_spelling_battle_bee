@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cch7p6c4tw3lm"]
+
+[ext_resource type="Texture2D" uid="uid://cwpha1fccnl54" path="res://resources/icons_items/item_bread.png" id="1_1ipq8"]
+[ext_resource type="Script" path="res://letters/all_items/item_sprite.gd" id="2_6dftr"]
+[ext_resource type="Texture2D" uid="uid://8pwd1puvppkv" path="res://letters/sprites/hand.png" id="3_dn85m"]
+[ext_resource type="Texture2D" uid="uid://l3teu51rx8ki" path="res://letters/sprites/letters_eyes.png" id="4_bu1v8"]
+
+[node name="item_sprite" type="Sprite2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_1ipq8")
+script = ExtResource("2_6dftr")
+
+[node name="hand" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-14, 4)
+texture = ExtResource("3_dn85m")
+
+[node name="eye_sprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_bu1v8")
+hframes = 7
+frame = 5
+
+[node name="sprite_animation_timer" type="Timer" parent="."]
+wait_time = 0.6
+autostart = true
+
+[node name="shake_timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="sprite_animation_timer" to="." method="_on_sprite_animation_timer_timeout" flags=18]
+[connection signal="timeout" from="shake_timer" to="." method="_on_shake_timer_timeout" flags=18]

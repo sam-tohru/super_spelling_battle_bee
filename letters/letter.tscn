@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6icrl"]
 size = Vector2(32, 64)
 
-[node name="letter" type="Area2D"]
+[node name="letter" type="Area2D" groups=["letter"]]
 script = ExtResource("1_75yn3")
 
 [node name="stats" parent="." instance=ExtResource("2_e8vhu")]

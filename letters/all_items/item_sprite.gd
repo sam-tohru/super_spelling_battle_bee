@@ -9,43 +9,21 @@ extends Sprite2D
 @onready var max_eyes = 6
 @onready var eye_wag = 0
 
-static var letter_to_sprite: Dictionary = {
-	'a': 0,
-	'b': 1,
-	'c': 2,
-	'd': 3,
-	'e': 4,
-	'f': 5,
-	'g': 6,
-	'h': 7,
-	'i': 8,
-	'j': 9,
-	'k': 10,
-	'l': 11,
-	'm': 12,
-	'n': 13,
-	'o': 14,
-	'p': 15,
-	'q': 16,
-	'r': 17,
-	's': 18,
-	't': 19,
-	'u': 20,
-	'v': 21,
-	'w': 22,
-	'x': 23,
-	'y': 24,
-	'z': 25,
-	'?': 26
+
+static var item_sprites: Dictionary = {
+	'apple': "res://resources/icons_items/item_apple.png",
+	'bread': "res://resources/icons_items/item_bread.png",
+	'shell': "res://resources/icons_items/item_shell.png",
+	'lizard': "res://resources/icons_items/item_lizard.png",
+	'firebomb': "res://resources/icons_items/item_explosion.png",
+	'feather': "res://resources/icons_items/item_summon.png" 
 }
 
-func set_letter_sprite(letter: String):
-	if !letter_to_sprite.has(letter): printerr('SET_LETTER_SPRITE LETTER NOT IN DICTIONARY: ', letter) ; return
-	
-	var letter_int = letter_to_sprite[letter]
-	self.set_frame(letter_int)
-func _on_letter_letter_stats_updated(letter: String, _attack, _health): # Signal from Parent
-	set_letter_sprite(letter)
+
+func set_letter_sprite(item: String):
+	self.texture = load(item_sprites[item])
+func _on_item_letter_stats_updated(item: String, _cost): # Signal from Parent
+	set_letter_sprite(item)
 
 
 
@@ -84,6 +62,5 @@ func _on_shake_timer_timeout():
 	if globvars.focused_letter == get_parent(): 
 		shake_tween()
 		shake_timer.start()
-
 
 

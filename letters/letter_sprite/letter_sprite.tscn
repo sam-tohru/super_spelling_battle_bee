@@ -7,7 +7,7 @@
 
 [node name="letter_sprite" type="Sprite2D"]
 texture = ExtResource("1_obbom")
-hframes = 26
+hframes = 27
 script = ExtResource("2_lkj42")
 
 [node name="hand" type="Sprite2D" parent="."]

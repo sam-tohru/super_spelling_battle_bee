@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpua40kk76d63"]
+[gd_scene load_steps=6 format=3 uid="uid://cpua40kk76d63"]
 
 [ext_resource type="Script" path="res://board/board_animations/animations.gd" id="1_vwfas"]
 [ext_resource type="FontFile" uid="uid://ckxk3elimfey3" path="res://resources/fonts/Kaph-Regular.otf" id="2_hmldn"]
+[ext_resource type="Script" path="res://board/board_animations/sub_nodes/explosive.gd" id="3_3aclh"]
 
 [sub_resource type="Curve" id="Curve_7axe5"]
 max_value = 20.0
@@ -174,3 +175,36 @@ theme_override_colors/font_color = Color(0.113725, 0.0862745, 0.0745098, 1)
 theme_override_fonts/font = ExtResource("2_hmldn")
 text = "FIGHT!"
 horizontal_alignment = 1
+
+[node name="explosive" type="Node2D" parent="."]
+script = ExtResource("3_3aclh")
+
+[node name="firework_1" type="CPUParticles2D" parent="explosive"]
+position = Vector2(22, -36)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 85
+one_shot = true
+explosiveness = 0.78
+randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_7axe5")
+color_ramp = SubResource("Gradient_0iio0")
+
+[node name="firework_2" type="CPUParticles2D" parent="explosive"]
+position = Vector2(-29, 36)
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 85
+one_shot = true
+explosiveness = 0.78
+randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_7axe5")
+color_ramp = SubResource("Gradient_0iio0")

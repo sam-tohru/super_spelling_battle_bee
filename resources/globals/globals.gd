@@ -18,17 +18,20 @@ signal re_roll_shop # New Shop Letters [Board -> Main]
 signal update_gold_left
 signal not_enough_gold_left # Goes to GoldLeft and does little animation + sound
 
-# signal shop_round 
+signal new_shop_round # When goes from battle->shop [Main -> Board.Shop & other Gold Stuff]
 
 ## Board & Letters
 signal clicked_letter
 signal dropped_letter
+
+signal spawn_set_letter
 
 
 ## Animation Signations
 signal after_battle_animations
 signal fight_animation
 signal hit_effect
+signal explosive_sfx # From Board.Battle (death effect) -> animations
 
 signal screen_shake
 
