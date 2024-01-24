@@ -5,3 +5,5 @@ This is the new version (as opposed to the jam version) license not on this righ
 I'm just writing stuff here to puff out the github activity lol
 <br>
 But from 11-8, I've re-made the board sprites, well re-made it all from the jam mostly, but now I need to add some currency system for buying letters/refresh (maybe bet if you'll win? idk), and i need some gameplay-loop progression planned out, like scene to scene (is it progressive based on round like S.A.P or like the original super spelling battle bee and all can appear in a round [maybe cost??]). I also want items/buffs for letters and such (items in S.A.P)
+<br>
+I ended up doing a new game-jam, and now idk when i'll come back to this, working on other stuff, one day I'll return most likely. I'm mainly working on paid steam releases now, where-as this free-to-play game is pretty low on my list, but I'll be adding stuff on occasion.
